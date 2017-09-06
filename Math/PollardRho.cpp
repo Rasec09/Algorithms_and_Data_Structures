@@ -98,15 +98,15 @@ int main() {
 			r[f]++;
 		printf("%lld =", n);
 		for (auto it = r.begin(); it != r.end(); it++) {
-        	if (it != r.begin())
-            	printf(" *");
-        	printf(" %lld", it->first);
-        	if (it->second > 1)
-        	printf("^%d", it->second);
-        }
-        printf("\n");
-        factors.clear();
-        r.clear();
+        		if (it != r.begin())
+            			printf(" *");
+        		printf(" %lld", it->first);
+        		if (it->second > 1)
+        			printf("^%d", it->second);
+        	}
+        	printf("\n");
+        	factors.clear();
+        	r.clear();
 	}
 	return 0;
 }
