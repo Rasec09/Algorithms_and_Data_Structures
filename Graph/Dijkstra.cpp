@@ -7,7 +7,7 @@ typedef vector<ii> vii;
 const int INF = 1000000000;
 
 vector<vii> Ady;
-vi dist;
+vi dist, parent;
 
 void dijkstra(int s) {
 
@@ -23,10 +23,17 @@ void dijkstra(int s) {
 		for (auto v : Ady[u]) {
 			if (dist[u] + v.second < dist[v.first]) {
 				dist[v.first] = dist[u] + v.second;
+				parent[v.first] = u;
 				pq.push(ii(dist[v.first], v.first));
 			}
 		}
 	}
+}
+
+void printPath(int des) {
+	if (parent[des] != -1)
+		printPath(parent[des]);
+	printf(" %d", des + 1);
 }
 
 int main() {
