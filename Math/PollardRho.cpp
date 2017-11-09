@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long int ll;
-typedef vector<ll> vi;
+typedef __int128 ll;
+typedef vector<long long int> vi;
 
 // Calcula el gcd(a, b)
 ll gcd(ll a, ll b) {
@@ -11,14 +11,15 @@ ll gcd(ll a, ll b) {
 
 // Multiplicacion binaria a*b mod m
 ll mulMod(ll a, ll b, ll m) {
-	ll result = 0;
+	/*ll result = 0;
 	while (b) {
 		if (b & 1)
 			result = (result + a) % m;
 		a = (a + a) % m;
 		b >>= 1;
 	}
-	return result;
+	return result;*/
+	return (a * b) % m;
 }
 
 // Exponenciacion Binaria a^n mod m
@@ -85,28 +86,22 @@ void factorize(ll n, vi &factors) {
 
 int main() {
 	
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 	int TC;
-	ll n;
+	long long int n;
 	vi factors;
-	map<ll, int> r;
 
-	scanf("%d", &TC);
+	cin >> TC;
 	while (TC--) {
-		scanf("%lld", &n);
+		cin >> n;
 		factorize(n, factors);
-		for (auto f : factors)
-			r[f]++;
-		printf("%lld =", n);
-		for (auto it = r.begin(); it != r.end(); it++) {
-        		if (it != r.begin())
-            			printf(" *");
-        		printf(" %lld", it->first);
-        		if (it->second > 1)
-        			printf("^%d", it->second);
-        	}
-        	printf("\n");
-        	factors.clear();
-        	r.clear();
+		sort(factors.begin(), factors.end());
+		cout << factors[0];
+		for (int i = 1; i < factors.size(); i++)
+			cout << " " << factors[i];
+		cout << "\n";
+        factors.clear();
 	}
 	return 0;
 }
