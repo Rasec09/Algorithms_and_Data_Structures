@@ -34,7 +34,7 @@ int kuhn(int n1, int n2) {
 
 int main() {
 	
-int N, M, E, x, y;
+    int N, M, E, x, y;
 
     scanf("%d %d %d", &N, &M, &E);
     adj.assign(N, vi());
@@ -47,6 +47,6 @@ int N, M, E, x, y;
     	if (match[i] != -1) {
       		printf("%d %d\n", match[i], i);
     	}
-}*/
-	return 0;
+    }*/
+    return 0;
 }
