@@ -27,6 +27,8 @@ int logs[MAXN];
 
 void initLCA(int root, int n) {
 	first.resize(n);
+	euler.clear();
+	level.clear();
 	dfs(root, root, 0);
 	for (int i = 2; i <= euler.size(); i++)
 		logs[i] = logs[i >> 1] + 1;
