@@ -44,9 +44,35 @@ struct SuffixArray {
     }
 };
 
+int lowerbound(const SuffixArray &SA, const string &p) {
+	int n = SA.s.size(), low = 0, hig = n;
+	while (low < hig) {
+		int mid = (low + hig) / 2;
+		int res = SA.s.compare(SA.sa[mid], p.size(), p);
+		if (res >= 0)
+			hig = mid;
+		else
+			low = mid + 1;
+	}
+	return low;
+}
+
+int upperbound(const SuffixArray &SA, const string &p) {
+	int n = SA.s.size(), low = 0, hig = n;
+	while (low < hig) {
+		int mid = (low + hig) / 2;
+		int res = SA.s.compare(SA.sa[mid], p.size(), p);
+		if (res <= 0)
+			low = mid + 1;
+		else
+			hig = mid;
+	}
+	return low;
+}
+
 int main() {
 	
-	int TC;   
+    int TC;   
     string str;
 
     cin >> TC;
@@ -59,5 +85,5 @@ int main() {
         	total -= lcp[i];
         cout << total << "\n";
     }
-	return 0;
+    return 0;
 }
