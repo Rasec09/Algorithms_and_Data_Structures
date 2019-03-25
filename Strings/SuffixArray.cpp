@@ -26,7 +26,7 @@ struct SuffixArray {
 	}
 
 	//Para hallar el LCP de dos sufijos arbitrarios i y j
-	//lcp(i, j) = min(lcp[i], lcp[i + 1], ..., lcp[j - 1])
+	//lcp(i, j) = min(lcp[i + 1], lcp[i + 1], ..., lcp[j])
 	vector<int> buildLCP() {
         int n = s.size();
         vector<int> lcp(n - 1, 0);
