@@ -2,8 +2,8 @@
 using namespace std;
 
 typedef long long int ll;
-typedef pair<int, int> factor;
-typedef vector<int> vi;
+typedef pair<int,int> factor;
+typedef vector<ll> vi;
 
 bitset<10000010> bs;
 vi primes;
