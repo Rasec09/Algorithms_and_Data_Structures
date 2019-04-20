@@ -20,6 +20,7 @@ bool dfs(int u) {
 	return false;
 }
 
+//Nodos enumerados desde 0 a n1 - 1 y 0 a n2 - 1
 int kuhn(int n1, int n2) {
 	visited.assign(n1, false);
 	match.assign(n2, -1);
