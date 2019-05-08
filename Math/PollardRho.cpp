@@ -84,6 +84,20 @@ void factorize(ll n, vi &factors) {
 	}
 }
 
+//Obtiene los divisores de un numero a partir de sus factores primos donde ocu es el exponente del pf
+void divisors(vi &d, vi &pf, vi &ocu, int idx, ll S) {
+	if (idx == pf.size()) {
+		d.push_back(S);
+		return;
+	}
+	else {
+		for (int i = 0; i <= ocu[idx]; i++) {
+			divisors(d, pf, ocu, idx + 1, S);
+			S *= pf[idx];
+		}
+	}
+}
+
 int main() {
 	
 	ios_base::sync_with_stdio(false);
