@@ -14,7 +14,7 @@ bool BellmanFord(int s, int V) {
 	for (int i = 0; i < V - 1; i++) {
 		for (int u = 0; u < V; u++) {
 			for (auto v : Ady[u])
-				if (dist[u] < INF)
+				if (dist[u] < INF) //Solo si el grafo no contiene ciclo negativo
 					dist[v.first] = min(dist[v.first], dist[u] + v.second);
 		}
 	}
