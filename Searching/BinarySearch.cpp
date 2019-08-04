@@ -16,7 +16,7 @@ int lowerbound(vector<ll> &arr, ll x) {
 }
 
 int upperbound(vector<ll> &arr, ll x) {
-	int left = 0, right = arr.size();
+    int left = 0, right = arr.size();
     while (left < right) {
         int mid = left + (right - left) / 2;
         if (x >= arr[mid])
