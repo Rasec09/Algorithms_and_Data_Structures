@@ -6,7 +6,7 @@ typedef long long int ll;
 int lowerbound(vector<ll> &arr, ll x) {
 	int left = 0, right = arr.size();
 	while (left < right) {
-		int mid = (left + right) / 2;
+		int mid = left + (right - left) / 2;
 		if (x <= arr[mid])
 			right = mid;
 		else
@@ -18,7 +18,7 @@ int lowerbound(vector<ll> &arr, ll x) {
 int upperbound(vector<ll> &arr, ll x) {
 	int left = 0, right = arr.size();
     while (left < right) {
-        int mid = (left + right) / 2;
+        int mid = left + (right - left) / 2;
         if (x >= arr[mid])
             left = mid + 1;
         else 
