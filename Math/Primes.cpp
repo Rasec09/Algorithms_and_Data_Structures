@@ -2,7 +2,7 @@
 using namespace std;
 
 typedef long long int ll;
-typedef pair<int,int> factor;
+typedef pair<ll,int> factor;
 typedef vector<ll> vi;
 
 bitset<10000010> bs;
