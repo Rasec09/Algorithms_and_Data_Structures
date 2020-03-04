@@ -4,7 +4,7 @@ using namespace std;
 typedef long long int ll;
 typedef long double Double;
 typedef complex<Double> complejo;
-const int MAXN = 2000010;
+const int MAXN = 2100010;
 int rev[MAXN];
 complejo wlen_pw[MAXN];
 
