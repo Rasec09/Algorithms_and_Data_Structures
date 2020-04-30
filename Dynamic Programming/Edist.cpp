@@ -25,7 +25,7 @@ int main() {
 				if (A[i - 1] == B[j - 1])
 					Edist[i][j] = Edist[i - 1][j - 1];
 				else
-					Edist[i][j] = 1 + min(Edist[i - 1][j - 1], min(Edist[i - 1][j], Edist[i][j - 1]));	
+					Edist[i][j] = 1 + min({Edist[i - 1][j - 1], Edist[i - 1][j], Edist[i][j - 1]});	
 			}
 		}
 		printf("%d\n", Edist[n][m]);
