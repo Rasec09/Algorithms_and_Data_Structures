@@ -20,8 +20,7 @@ struct Trie {
 
 	Trie() : root(new TrieNode()) {}
 
-	void insert(string str) {
-
+	void insert(string &str) {
 		TrieNode *current = root;
 		for (int i = 0; i < str.size(); i++) {
 			int idx = str[i] - 'a'; 
@@ -33,8 +32,7 @@ struct Trie {
 		current -> isEndOfWord = true;
 	}
 
-	bool search(string str) {
-
+	bool search(string &str) {
 		TrieNode* current = root;
 		for (int i = 0; i < str.size(); i++) {
 			int idx = str[i] - 'a';
