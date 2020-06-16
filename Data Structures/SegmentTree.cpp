@@ -9,13 +9,11 @@ struct Node {
 	int best, secondBest;
 
 	void make_Node(int v) {
-
 		best = v;
 		secondBest = -1;
 	}
 
 	void merge(Node left, Node right) {
-		
 		best = max(left.best, right.best);
 		secondBest = max(min(left.best, right.best), max(left.secondBest, right.secondBest));
 	}
@@ -26,13 +24,11 @@ struct SegmentTree {
 	Node *stree;
 
 	SegmentTree(int N) {
-		
 		stree = new Node[getSegmentTreeSize(N)];
 		buildTree(1, 0, N - 1);
 	}
 
 	void buildTree(int nodo, int L, int R) {
-
 		if (L == R)
 			stree[nodo].make_Node(arr[L]);
 		else {
@@ -44,7 +40,6 @@ struct SegmentTree {
 	}
 
 	Node query(int nodo, int L, int R, int i, int j) {
-
 		if (L >= i && R <= j)
 			return stree[nodo];
 		
@@ -62,7 +57,6 @@ struct SegmentTree {
 	}
 
 	void update(int nodo, int L, int R, int idx, int value) {
-
 		if (L == R) {
 			arr[idx] = value;
 			stree[nodo].make_Node(value);
@@ -77,7 +71,6 @@ struct SegmentTree {
 	}
 
 	int getSegmentTreeSize(int N) {
-
 		int size = 1;
 		for(; size < N; size <<= 1);
 		return size << 1;
