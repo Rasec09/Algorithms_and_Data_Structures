@@ -28,16 +28,16 @@ struct SuffixArray {
 	//Para hallar el LCP de dos sufijos arbitrarios i y j
 	//lcp(i, j) = min(lcp[i + 1], lcp[i + 2], ..., lcp[j])
 	vector<int> buildLCP() {
-		int n = s.size();
-		vector<int> lcp(n);
-		for (int i = 0, k = 0; i < n - 1; i++) {
-		    int j = sa[rank[i] - 1];
-		    while (s[i + k] == s[j + k]) k++;
-		    lcp[rank[i]] = k;
-		    if (k) k--;
-		}
-		return lcp;
+    int n = s.size();
+    vector<int> lcp(n);
+    for (int i = 0, k = 0; i < n - 1; i++) {
+        int j = sa[rank[i] - 1];
+        while (s[i + k] == s[j + k]) k++;
+        lcp[rank[i]] = k;
+        if (k) k--;
     }
+    return lcp;
+	}
 };
 
 int lowerbound(const SuffixArray &SA, const string &p) {
