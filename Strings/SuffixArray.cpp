@@ -37,7 +37,7 @@ struct SuffixArray {
 		    if (k) k--;
 		}
 		return lcp;
-    }
+		}
     }
 };
 
