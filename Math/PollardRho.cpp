@@ -58,6 +58,11 @@ bool isPrime(ll n) {
     return true;
 }
 
+ll absolute(ll a) {
+	if (a < 0) a *= -1;
+	return a;
+}
+
 ll PollardRho(ll n, ll seed) {
 	ll x, y;
 	x = y = rand() % (n - 1) + 1;
@@ -66,7 +71,7 @@ ll PollardRho(ll n, ll seed) {
 		x = mulMod(x, x, n);
 		x = (x + seed) % n;
 		if (x == y) return n;
-		ll d = gcd(abs(y - x), n);
+		ll d = gcd(absolute(y - x), n);
 		if (d != 1 && d != n) return d;
 		if (++head == tail) y = x, tail <<= 1;
 	}
@@ -99,23 +104,21 @@ void divisors(vi &d, vi &pf, vi &ocu, int idx, ll S) {
 }
 
 int main() {
-	
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	int TC;
 	long long int n;
-	vi factors;
 
 	cin >> TC;
 	while (TC--) {
 		cin >> n;
+		vi factors;
 		factorize(n, factors);
 		sort(factors.begin(), factors.end());
 		cout << factors[0];
 		for (int i = 1; i < factors.size(); i++)
 			cout << " " << factors[i];
 		cout << "\n";
-        factors.clear();
 	}
 	return 0;
 }
