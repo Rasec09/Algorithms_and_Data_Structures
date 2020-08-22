@@ -28,7 +28,7 @@ struct SuffixArray {
 	//Para hallar el LCP de dos sufijos arbitrarios i y j
 	//lcp(i, j) = min(lcp[i + 1], lcp[i + 2], ..., lcp[j])
 	vector<int> buildLCP() {
-	    int n = s.size();
+		int n = s.size();
 		vector<int> lcp(n - 1, 0); //lcp[i] = longest common prefix between suffix i and i - 1 
 		for (int i = 0, k = 0; i < n; i++) {
 			if (rank[i] < n - 1) {
