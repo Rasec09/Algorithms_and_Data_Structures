@@ -31,14 +31,14 @@ struct SuffixArray {
 	    int n = s.size();
 		vector<int> lcp(n - 1, 0); //lcp[i] = longest common prefix between suffix i and i - 1 
 		for (int i = 0, k = 0; i < n; i++) {
-		    if (rank[i] < n - 1) {
+			if (rank[i] < n - 1) {
 			int j = sa[rank[i] + 1];
 			while (i + k < n && j + k < n && s[i + k] == s[j + k])
-			    k++;
+				k++;
 			lcp[rank[i]] = k;
 			if (k)
 				k--;
-		    }
+			}
 		}
 		return lcp;
 	}
