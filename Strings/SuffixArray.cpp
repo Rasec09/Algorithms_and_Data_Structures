@@ -29,7 +29,7 @@ struct SuffixArray {
 	//lcp(i, j) = min(lcp[i + 1], lcp[i + 2], ..., lcp[j])
 	vector<int> buildLCP() {
 	    int n = s.size();
-        vector<int> lcp(n - 1, 0); //lcp[i] = longest common prefix between prefix i and i - 1 
+        vector<int> lcp(n - 1, 0); //lcp[i] = longest common prefix between suffix i and i - 1 
         for (int i = 0, k = 0; i < n; i++) {
             if (rank[i] < n - 1) {
                 int j = sa[rank[i] + 1];
