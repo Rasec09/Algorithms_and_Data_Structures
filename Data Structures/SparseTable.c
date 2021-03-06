@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAXN 100010
+#define MAXN 1000010
 #define LOGN 20
 
 int A[MAXN];
