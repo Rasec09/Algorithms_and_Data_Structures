@@ -47,7 +47,7 @@ int main() {
 		scanf("%d %d %d", &a, &b, &w);
 		Ady[--a].push_back(ii(--b, w));
 	}
-	
+	parent.assign(V, -1);
 	dijkstra(0);
 	for (int i = 1; i < V; i++)
 		printf("%d ", dist[i]);
