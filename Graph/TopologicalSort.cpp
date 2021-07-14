@@ -17,6 +17,35 @@ void OrdenTopologico(int u) {
 	topologicalSort.push_back(u);
 }
 
+// Orden topologico lexicograficamente menor
+vi topologicalSort(vector<vi> &AdjList, int V) {
+	vi orden;
+	vi in_degree(V, 0);
+ 
+	for (int i = 0; i < V; i++) {
+		for (int j = 0; j < AdjList[i].size(); j++) {
+			in_degree[AdjList[i][j]]++;
+		}
+	}
+ 
+	priority_queue<int, vector<int>, greater<int> > q;
+	for (int i = 0; i < V; i++)
+		if (in_degree[i] == 0)
+			q.push(i);
+ 
+	while (!q.empty()) {
+		int v = q.top();
+		q.pop();
+		orden.push_back(v);
+		for (int i = 0; i < AdjList[v].size(); i++) {
+			in_degree[AdjList[v][i]]--;
+			if (in_degree[AdjList[v][i]] == 0)
+				q.push(AdjList[v][i]);
+		}
+	}
+	return orden;
+}
+
 //Caminos mas largo en un DAG desde la fuente s requiere el topoSort
 int longestPath(int V, int s) {
 	dist.assign(V, -INF); //Cambiar -INF por 0 si no hay fuente
