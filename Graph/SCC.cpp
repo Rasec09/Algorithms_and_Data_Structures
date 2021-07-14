@@ -33,6 +33,31 @@ void tarjanSCC(int u) {
 	}
 }
 
+// Devuelve el grafo formado por las componentes fuertemente conexas
+vector<vi> condensedGraph(vector<vi> &adj, vector<vi> &scc, int n) {
+	vector<vi> adj_scc;
+	set<pair<int,int>> edges;
+	map<int,int> vertexSCC;
+
+	for (int i = 0; i < scc.size(); i++) {
+		for (int v : scc[i]) {
+			vertexSCC[v] = i;
+		}
+	}
+
+	for (int i = 0; i < adj.size(); i++) {
+		for (int v : adj[i]) {
+			if (vertexSCC[i] != vertexSCC[v])
+				edges.insert(make_pair(vertexSCC[i], vertexSCC[v]));
+		}
+	}
+	adj_scc.assign(scc.size(), vi());
+	for (auto e : edges) {
+		adj_scc[e.first].push_back(e.second);
+	}
+	return adj_scc;
+}
+
 int main() {
 	
 	int N, M, V, W, P;
