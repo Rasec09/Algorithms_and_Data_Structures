@@ -2,17 +2,13 @@
 using namespace std;
 
 struct UnionFind {
-	
 	int numSets;
-	int *padre;
-	int *rango;
-	int *numVertices;
+	vector<int> padre, rango, numVertices;
 
 	UnionFind(int N) : numSets(N) {
-		
-		padre = new int[N + 1];
-		rango = new int[N + 1];
-		numVertices = new int[N + 1];
+		padre.assign(N + 1, 0);
+		rango.assign(N + 1, 0);
+		numVertices.assign(N + 1, 0);
 		for (int i = 0; i <= N; ++i) {
 			padre[i] = i;
 			rango[i] = 0;
@@ -29,7 +25,6 @@ struct UnionFind {
     }
 
     void unionSet(int x, int y) {
-        
         int xRoot = findSet(x);
         int yRoot = findSet(y);
 		if (!isSameSet(xRoot, yRoot)) {
