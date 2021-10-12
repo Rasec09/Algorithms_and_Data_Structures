@@ -4,13 +4,11 @@ using namespace std;
 const int ALPHABET_SIZE = 30;
 
 struct TrieNode {
-	
-	TrieNode *children[ALPHABET_SIZE];
+	vector<TrieNode*> children;
 	bool isEndOfWord;
 
 	TrieNode() : isEndOfWord(false) {
-		for (int i = 0; i < ALPHABET_SIZE; i++)
-			children[i] = NULL;
+		children.assign(ALPHABET_SIZE, NULL);	
 	}
 };
 
