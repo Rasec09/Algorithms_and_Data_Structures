@@ -8,10 +8,9 @@ int n, W, value[105], weight[105];
 ll memo[105][100005];
 
 ll dp(int idx, int remW) {
-	if (idx == n || remW == 0) return 0;
+	if (remW < 0) return -1e9;
+	if (idx == n) return 0;
 	if (memo[idx][remW] != -1) return memo[idx][remW];
-	if (remW < weight[idx])
-		return memo[idx][remW] = dp(idx + 1, remW);
 	return memo[idx][remW] = max(dp(idx + 1, remW), dp(idx + 1, remW - weight[idx]) + value[idx]);
 }
 
