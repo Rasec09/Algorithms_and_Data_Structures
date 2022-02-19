@@ -40,6 +40,20 @@ int lis(int N) {
 	return res;
 }
 
+/*Longest Increasing Subsequence - O(nlogk)*/
+int lis(vector<int> &a) {
+	vector<int> tail;
+	tail.emplace_back(a[0]);
+	for (int i = 1; i < a.size(); i++) {
+		auto it = lower_bound(tail.begin(), tail.end(), a[i]);
+		if (it == tail.end())
+			tail.emplace_back(a[i]);
+		else
+			*it = a[i];
+	}
+	return tail.size();
+}
+
 int main() {
 	
 	int T, N, res;
