@@ -3,6 +3,7 @@ using namespace std;
 
 typedef long long int ll;
 
+// first >= x
 int lowerbound(vector<ll> &arr, ll x) {
 	int left = 0, right = arr.size();
 	while (left < right) {
@@ -15,6 +16,7 @@ int lowerbound(vector<ll> &arr, ll x) {
 	return left;
 }
 
+// first > x
 int upperbound(vector<ll> &arr, ll x) {
     int left = 0, right = arr.size();
     while (left < right) {
