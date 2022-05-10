@@ -2,13 +2,12 @@
 using namespace std;
 
 struct FenwickTree {
-
-	int *ft, size;
+	
+	int size;
+	vector<int> ft;
 
 	FenwickTree(int n) : size(n) {
-		ft = new int[n + 1];
-		for (int i = 0; i <= n; i++)
-			ft[i] = 0;
+		ft.assign(n + 1, 0);
 	}
 
 	void update(int idx, int val) {
