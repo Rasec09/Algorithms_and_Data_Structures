@@ -5,9 +5,10 @@ const int ALPHABET_SIZE = 30;
 
 struct TrieNode {
 	vector<TrieNode*> children;
+	int prefix;
 	bool isEndOfWord;
 
-	TrieNode() : isEndOfWord(false) {
+	TrieNode() : isEndOfWord(false), prefix(0) {
 		children.assign(ALPHABET_SIZE, NULL);	
 	}
 };
@@ -20,12 +21,14 @@ struct Trie {
 
 	void insert(string &str) {
 		TrieNode *current = root;
+		current -> prefix++;
 		for (int i = 0; i < str.size(); i++) {
 			int idx = str[i] - 'a'; 
 			if (current -> children[idx] == NULL) {
 				current -> children[idx] = new TrieNode();
 			}
 			current = current -> children[idx];
+			current -> prefix++;
 		}
 		current -> isEndOfWord = true;
 	}
