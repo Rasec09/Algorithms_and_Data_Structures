@@ -3,8 +3,8 @@
 using namespace std;
 #define optimizar_io ios_base::sync_with_stdio(false);cin.tie(0);
 
-int dx[] = {1, -1, 0, 0, 1, 1, -1, -1};
-int dy[] = {0, 0, 1, -1, 1, -1, 1, -1};
+array<int,4> dx = {1, -1, 0, 0, 1, 1, -1, -1};
+array<int,4> dy = {0, 0, 1, -1, 1, -1, 1, -1};
 int n, m;
 bool visited[105][105];
 char grid[105][105];
