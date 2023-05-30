@@ -11,7 +11,7 @@ struct FenwickTree {
 		ft.assign(n + 1, 0);
 	}
 
-	void update(int idx, int val) {
+	void update(int idx, ll val) {
 		while (idx <= size) {
 			ft[idx] += val;
 			idx += (idx & -idx);
