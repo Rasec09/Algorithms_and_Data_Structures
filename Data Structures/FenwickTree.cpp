@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long int ll;
 
 struct FenwickTree {
 	
 	int size;
-	vector<int> ft;
+	vector<ll> ft;
 
 	FenwickTree(int n) : size(n) {
 		ft.assign(n + 1, 0);
@@ -17,8 +18,8 @@ struct FenwickTree {
 		}
 	}
 
-	int query(int idx) {
-		int sum = 0;
+	ll query(int idx) {
+		ll sum = 0;
 		while (idx > 0) {
 			sum += ft[idx];
 			idx -= (idx & -idx);
@@ -26,7 +27,7 @@ struct FenwickTree {
 		return sum;
 	}
 
-	int range(int i, int j) {
+	ll range(int i, int j) {
 		return query(j) - query(i - 1);
 	}
 };
