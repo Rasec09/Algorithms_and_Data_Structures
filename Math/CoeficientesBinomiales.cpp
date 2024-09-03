@@ -28,8 +28,8 @@ ll powMod(ll a, ll n, ll m) {
 	return result;
 }
 
-ll invMod(ll a, ll m) {
-	return powMod(denominador, m - 2, m);
+ll invMod(ll a, ll m = MOD) {
+	return powMod(a, m - 2, m);
 }
 
 // n! / r! * (n - r)! 
