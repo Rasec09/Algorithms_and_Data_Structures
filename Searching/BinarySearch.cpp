@@ -3,7 +3,7 @@ using namespace std;
 
 typedef long long int ll;
 
-// first >= x
+// NO NO NO NO YES YES YES YES YES
 int lowerbound(vector<ll> &arr, ll x) {
 	int left = 0, right = arr.size();
 	while (left < right) {
@@ -14,6 +14,19 @@ int lowerbound(vector<ll> &arr, ll x) {
 			left = mid + 1;
 	}
 	return left;
+}
+
+// YES YES YES NO NO NO NO NO
+int firstBad() {
+	int left = 0, right = n;
+        while (left < right) {
+            	int mid = left + (right - left) / 2;
+		if (check()) 
+                	left = mid;
+            	else 
+                	right = mid - 1;
+        }
+        return left;
 }
 
 // first > x
