@@ -16,19 +16,6 @@ int lowerbound(vector<ll> &arr, ll x) {
 	return left;
 }
 
-// YES YES YES NO NO NO NO NO
-int firstBad() {
-	int left = 0, right = n;
-        while (left < right) {
-            	int mid = left + (right - left) / 2;
-		if (check()) 
-                	left = mid;
-            	else 
-                	right = mid - 1;
-        }
-        return left;
-}
-
 // first > x
 int upperbound(vector<ll> &arr, ll x) {
     int left = 0, right = arr.size();
